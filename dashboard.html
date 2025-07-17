@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OLAMYKxVBOT Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="dashboard.js"></script>
+</head>
+<body class="dashboard">
+  <header>
+    <h1>🤖 OLAMYKxVBOT - Dashboard</h1>
+    <nav>
+      <a href="index.html">🔒 Logout</a>
+      <a href="settings.html">⚙️ Settings</a>
+      <a href="user-management.html">👥 Users</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card-section">
+      <h2>📇 Your WhatsApp Contacts & Groups</h2>
+      <div id="contact-list" class="card-grid">
+        <!-- Populated by dashboard.js -->
+      </div>
+    </section>
+
+    <section class="card-section">
+      <h2>🤖 Select who the bot should auto-reply</h2>
+      <div id="selection-list" class="card-grid">
+        <!-- Checkboxes for contacts/groups -->
+      </div>
+      <button id="save-selection">✅ Save Selection</button>
+    </section>
+
+    <section class="card-section">
+      <h2>🔄 Not connected?</h2>
+      <p>Scroll down and scan the new QR code below:</p>
+      <div id="qr-container">
+        <!-- Real-time QR rendered from backend -->
+        <iframe src="/qr" width="300" height="300" frameborder="0"></iframe>
+      </div>
+    </section>
+  </main>
+<script>
+async function sendToBot(message) {
+  const res = await fetch('https://olamykxvbot.onrender.com', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ prompt: message })
+  });
+
+  const data = await res.json();
+  console.log('Reply:', data.reply);
+  document.getElementById("response").innerText = data.reply;
+}
+
+document.getElementById("sendBtn").addEventListener("click", () => {
+  const userInput = document.getElementById("userInput").value;
+  sendToBot(userInput);
+});
+</script>
+
+
+  <footer>
+    <p>Made with ❤️ by OLAMYK</p>
+  </footer>
+</body>
+</html>

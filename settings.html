@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OLAMYKxVBOT — Bot Settings</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="settings-page">
+  <header>
+    <h1>🤖 OLAMYKxVBOT Settings</h1>
+    <p>Customize your bot’s behavior below</p>
+  </header>
+
+  <main>
+    <section class="toggle-section">
+      <h2>🔧 Feature Toggles</h2>
+
+      <div class="toggle-item">
+        <label>Savage Mode</label>
+        <input type="checkbox" id="toggle-savage" />
+      </div>
+
+      <div class="toggle-item">
+        <label>Auto Reply</label>
+        <input type="checkbox" id="toggle-auto-reply" />
+      </div>
+
+      <div class="toggle-item">
+        <label>Status Auto-Liking</label>
+        <input type="checkbox" id="toggle-status-like" />
+      </div>
+
+      <div class="toggle-item">
+        <label>Deleted Message Recovery</label>
+        <input type="checkbox" id="toggle-recover" />
+      </div>
+
+      <div class="toggle-item">
+        <label>GPT Message Generation</label>
+        <input type="checkbox" id="toggle-gpt" />
+      </div>
+
+      <div class="toggle-item">
+        <label>Voice to Text</label>
+        <input type="checkbox" id="toggle-voice-text" />
+      </div>
+
+      <div class="toggle-item">
+        <label>Text to Voice</label>
+        <input type="checkbox" id="toggle-text-voice" />
+      </div>
+
+      <div class="toggle-item">
+        <label>Code Execution (Python/JS)</label>
+        <input type="checkbox" id="toggle-code-run" />
+      </div>
+
+      <div class="toggle-item">
+        <label>Learning Reply Style</label>
+        <input type="checkbox" id="toggle-learning" />
+      </div>
+    </section>
+
+    <section class="actions">
+      <button onclick="saveSettings()">💾 Save Settings</button>
+    </section>
+  </main>
+
+  <script src="settings.js"></script>
+</body>
+</html>
